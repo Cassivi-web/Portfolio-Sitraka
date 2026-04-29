@@ -887,4 +887,615 @@
     gap: 8px;
   }
   .about-tag {
-    ba
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-size: .8rem;
+    font-weight: 600;
+    padding: 6px 14px;
+    border-radius: 50px;
+  }
+
+  /* ─── FINAL CTA ─── */
+  .final-cta {
+    background: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 100px 5%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .final-cta-bg {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 70% at 50% 50%, rgba(26,107,245,.15) 0%, transparent 65%);
+  }
+
+  .final-cta-inner { position: relative; z-index: 2; }
+
+  .final-cta h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 14px;
+    letter-spacing: -1.5px;
+  }
+
+  .final-cta p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,.6);
+    margin-bottom: 36px;
+  }
+
+  .final-note {
+    margin-top: 20px;
+    font-size: .85rem;
+    color: rgba(255,255,255,.35);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #04070F;
+    padding: 40px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-top: 1px solid rgba(255,255,255,.05);
+  }
+
+  .footer-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--white);
+  }
+  .footer-logo span { color: var(--blue-light); }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .footer-links a {
+    color: rgba(255,255,255,.45);
+    text-decoration: none;
+    font-size: .88rem;
+    transition: color .2s;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .footer-links a:hover { color: var(--blue-light); }
+
+  .footer-copy {
+    color: rgba(255,255,255,.2);
+    font-size: .8rem;
+    width: 100%;
+    text-align: center;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.04);
+    margin-top: 8px;
+  }
+
+  /* ─── WA FLOAT ─── */
+  .wa-float {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    z-index: 1000;
+    width: 60px; height: 60px;
+    border-radius: 50%;
+    background: var(--wa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37,211,102,.4);
+    text-decoration: none;
+    transition: all .2s ease;
+    animation: floatBounce 2s ease-in-out infinite;
+  }
+  .wa-float:hover { transform: scale(1.1); box-shadow: 0 8px 32px rgba(37,211,102,.5); }
+
+  @keyframes floatBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+
+  /* ─── SECTION WA CTA ─── */
+  .section-wa {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .6s ease, transform .6s ease;
+  }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .problem-grid,
+    .solution-grid,
+    .cases-grid,
+    .testi-grid,
+    .obj-grid { grid-template-columns: 1fr; }
+
+    .process-steps {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .process-steps::before { display: none; }
+
+    .about-inner { grid-template-columns: 1fr; text-align: center; }
+    .about-photo { margin: 0 auto; }
+    .about-tags { justify-content: center; }
+  }
+
+  @media (max-width: 600px) {
+    nav { padding: 12px 4%; }
+    .nav-cta { font-size: .78rem; padding: 8px 14px; }
+    section { padding: 70px 5%; }
+    .hero-stats { gap: 16px; }
+    .process-steps { grid-template-columns: 1fr; }
+    .hero-divider { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- STICKY NAV -->
+<nav>
+  <div class="nav-logo">Cassivi<span>Digital</span></div>
+  <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="nav-cta">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+    WhatsApp
+  </a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">Disponible — 3 places restantes ce mois</div>
+    <h1>Vous dépensez en pub sans résultats ? Je transforme vos campagnes en <em>machine à clients rentables.</em></h1>
+    <p class="hero-sub">
+      <strong>Sitraka Ramamonjisoa</strong> | Fondateur de Cassivi Digital MG<br>
+      Media buyer spécialisé Meta Ads & Google Ads · +2 ans d'expérience en acquisition client performante
+    </p>
+    <div class="hero-actions">
+      <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Discuter sur WhatsApp maintenant
+      </a>
+      <div class="hero-urgency">
+        <span>⚡ 3 nouveaux clients ce mois</span> — places limitées
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">+2<span>ans</span></div>
+        <div class="hero-stat-label">Expérience Meta & Google</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">4.2<span>x</span></div>
+        <div class="hero-stat-label">ROAS moyen</div>
+      </div>
+      <div class="hero-divider"></div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">270<span>+</span></div>
+        <div class="hero-stat-label">Leads générés</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLÈME -->
+<section class="problem fade-up">
+  <div class="problem-grid">
+    <div class="problem-text">
+      <div class="section-label">Le problème</div>
+      <p class="problem-quote">
+        Vous investissez dans la pub. Mais vos résultats ne suivent pas. <em>Vous n'êtes pas seul.</em>
+      </p>
+      <p style="color:var(--text-muted);font-size:.98rem;line-height:1.7;margin-bottom:24px;">La plupart des entreprises brûlent leur budget publicitaire parce qu'elles n'ont pas de stratégie pensée pour la rentabilité. Ce n'est pas un problème de budget — c'est un problème de méthode.</p>
+      <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa" style="display:inline-flex;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Résoudre ce problème
+      </a>
+    </div>
+    <div class="problem-cards">
+      <div class="problem-card">
+        <div class="problem-icon">💸</div>
+        <div>
+          <h4>Budget brûlé, zéro retour</h4>
+          <p>Vous dépensez 300, 500, 1000€… et vos annonces ne ramènent ni leads ni ventes. Chaque jour, de l'argent part en fumée.</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">📈</div>
+        <div>
+          <h4>Coût par lead trop élevé</h4>
+          <p>Vous avez des leads, mais ils coûtent 15, 20, 30€ l'unité. À ce rythme, la rentabilité est impossible à atteindre.</p>
+        </div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-icon">🔁</div>
+        <div>
+          <h4>Campagnes qui ne scalent pas</h4>
+          <p>Dès que vous augmentez le budget, le coût explose et les résultats s'effondrent. Vous êtes bloqué à la case départ.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story fade-up">
+  <div class="story-bg"></div>
+  <div class="story-inner">
+    <div class="section-label">Mon histoire</div>
+    <div class="section-title" style="color:var(--white);">Pourquoi j'ai créé Cassivi Digital MG</div>
+    <div class="story-timeline">
+      <div class="story-step">
+        <div class="story-step-left">
+          <div class="story-dot"></div>
+          <div class="story-line"></div>
+        </div>
+        <div class="story-step-content">
+          <div class="story-step-tag">Le début</div>
+          <h4>La découverte du marketing digital</h4>
+          <p>J'ai découvert les publicités en ligne en cherchant à aider une entreprise locale à trouver plus de clients. Le potentiel était évident — mais la maîtrise, elle, s'acquiert avec le temps et les tests.</p>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-step-left">
+          <div class="story-dot"></div>
+          <div class="story-line"></div>
+        </div>
+        <div class="story-step-content">
+          <div class="story-step-tag">Le déclic</div>
+          <h4>Combien d'entreprises brûlent leur argent</h4>
+          <p>En analysant des comptes publicitaires, j'ai réalisé une chose : la majorité des businesses investissaient dans des campagnes mal structurées. Pas parce qu'ils manquaient de budget — parce qu'ils manquaient de méthode.</p>
+        </div>
+      </div>
+      <div class="story-step">
+        <div class="story-step-left">
+          <div class="story-dot"></div>
+        </div>
+        <div class="story-step-content">
+          <div class="story-step-tag">Aujourd'hui</div>
+          <h4>Focus sur la performance et la rentabilité</h4>
+          <p>Avec Cassivi Digital MG, je gère des campagnes Meta et Google avec un seul objectif : chaque euro investi doit rapporter. Résultats mesurables, reporting clair, accountability totale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTION -->
+<section class="solution fade-up">
+  <div class="solution-inner">
+    <div class="center">
+      <div class="section-label">Ma solution</div>
+      <div class="section-title">Une approche orientée ROI, pas juste des clics</div>
+      <p class="section-sub">Je ne gère pas des campagnes. Je construis des systèmes d'acquisition client qui transforment chaque euro dépensé en revenus réels.</p>
+    </div>
+    <div class="solution-grid">
+      <div class="solution-card">
+        <div class="solution-num">01</div>
+        <h4>Ciblage précis</h4>
+        <p>J'identifie exactement votre client idéal et je configure des audiences qui convertissent — pas des audiences larges qui brûlent votre budget.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-num">02</div>
+        <h4>Créatifs qui vendent</h4>
+        <p>Visuels, accroches, copywriting : chaque élément de vos annonces est pensé pour déclencher l'action, pas juste générer des vues.</p>
+      </div>
+      <div class="solution-card">
+        <div class="solution-num">03</div>
+        <h4>Optimisation continue</h4>
+        <p>Je ne lance pas et n'oublie pas. J'analyse, j'ajuste, je scale ce qui fonctionne et stoppe ce qui coûte sans retour.</p>
+      </div>
+    </div>
+    <div class="section-wa">
+      <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+        Je veux cette approche pour mon business
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PREUVES / ÉTUDES DE CAS -->
+<section class="cases fade-up">
+  <div class="center">
+    <div class="section-label" style="color:var(--blue-light);">Résultats concrets</div>
+    <div class="section-title" style="color:var(--white);">Des chiffres, pas des promesses</div>
+    <p class="section-sub" style="color:rgba(255,255,255,.55);">Voici ce que mes campagnes produisent réellement pour mes clients.</p>
+  </div>
+  <div class="cases-grid">
+    <div class="case-card">
+      <div class="case-tag">Meta Ads · Cabinet médical</div>
+      <h4>Génération de leads patients — Clinique privée</h4>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num green">120</div>
+          <div class="case-metric-label">Leads / mois</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num blue">1,8€</div>
+          <div class="case-metric-label">Coût / lead</div>
+        </div>
+      </div>
+      <p class="case-desc">Campagnes Meta optimisées pour la prise de rendez-vous. Ciblage géolocalisé et audiences lookalike pour atteindre les bons patients au bon moment.</p>
+    </div>
+    <div class="case-card">
+      <div class="case-tag">Google Ads · E-commerce</div>
+      <h4>Performance Shopping — Boutique en ligne</h4>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num green">4.2x</div>
+          <div class="case-metric-label">ROAS</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num blue">500€</div>
+          <div class="case-metric-label">Budget mensuel</div>
+        </div>
+      </div>
+      <p class="case-desc">Mise en place de campagnes Google Shopping structurées avec flux produits optimisés. ROAS de 4,2 obtenu dès le deuxième mois après optimisation.</p>
+    </div>
+    <div class="case-card">
+      <div class="case-tag">Meta Ads · Formation</div>
+      <h4>Vente de formation en ligne — Coach digital</h4>
+      <div class="case-metrics">
+        <div class="case-metric">
+          <div class="case-metric-num green">75</div>
+          <div class="case-metric-label">Leads / mois</div>
+        </div>
+        <div class="case-metric">
+          <div class="case-metric-num blue">2,5€</div>
+          <div class="case-metric-label">Coût / lead</div>
+        </div>
+      </div>
+      <p class="case-desc">Funnel Meta Ads complet : sensibilisation, conversion, retargeting. CPL divisé par 3 par rapport aux campagnes initiales du client.</p>
+    </div>
+  </div>
+  <div class="section-wa" style="margin-top:48px;">
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Obtenir des résultats similaires
+    </a>
+  </div>
+</section>
+
+<!-- TÉMOIGNAGES -->
+<section class="testimonials fade-up">
+  <div class="center">
+    <div class="section-label">Ce qu'ils disent</div>
+    <div class="section-title">La parole à mes clients</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Avant de travailler avec Sitraka, je dépensais 400€ par mois sur Facebook sans vraiment comprendre ce qui se passait. En un mois, j'ai eu mes premiers vrais résultats — 40 leads qualifiés. Je recommande sans hésitation."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">MR</div>
+        <div>
+          <div class="testi-name">Marc R.</div>
+          <div class="testi-role">Responsable marketing · Clinique dentaire</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"On avait essayé plusieurs prestataires avant. Sitraka est le premier à nous avoir montré des chiffres concrets dès le départ. Notre ROAS est passé de 1,4 à 4,2 en 8 semaines. On scale maintenant en confiance."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">AL</div>
+        <div>
+          <div class="testi-name">Amina L.</div>
+          <div class="testi-role">Fondatrice · Boutique mode en ligne</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Ce qui m'a convaincu, c'est son approche. Pas de promesses vides — il analyse, propose une stratégie claire, puis exécute. Mon coût par lead pour ma formation est passé de 12€ à 2,5€. C'est du concret."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">TD</div>
+        <div>
+          <div class="testi-name">Thomas D.</div>
+          <div class="testi-role">Coach & formateur digital</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section-wa">
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Je veux ce type de résultats
+    </a>
+  </div>
+</section>
+
+<!-- CTA BANNER 1 -->
+<div class="cta-banner fade-up">
+  <div class="cta-banner-inner">
+    <h2>Prêt à arrêter de perdre de l'argent en publicité ?</h2>
+    <p>Un audit gratuit de 30 min pour identifier exactement où ça bloque dans vos campagnes.</p>
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa-large">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Réserver mon audit gratuit sur WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- PROCESS -->
+<section class="process fade-up">
+  <div class="center">
+    <div class="section-label">Comment ça marche</div>
+    <div class="section-title">Mon process en 5 étapes</div>
+    <p class="section-sub">Transparent, structuré, orienté résultats. Voici comment je travaille avec chaque client.</p>
+  </div>
+  <div class="process-steps">
+    <div class="process-step">
+      <div class="process-num">1</div>
+      <h4>Analyse</h4>
+      <p>Audit de vos campagnes, offre, cible et marché pour identifier les leviers de croissance.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">2</div>
+      <h4>Stratégie</h4>
+      <p>Plan d'action personnalisé : plateformes, budgets, créatifs, tunnels de conversion.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">3</div>
+      <h4>Lancement</h4>
+      <p>Mise en place des campagnes avec structure professionnelle et tests A/B immédiats.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">4</div>
+      <h4>Optimisation</h4>
+      <p>Suivi quotidien, ajustements en temps réel pour améliorer le ROI en continu.</p>
+    </div>
+    <div class="process-step">
+      <div class="process-num">5</div>
+      <h4>Reporting</h4>
+      <p>Rapport clair et transparent chaque semaine. Vous savez exactement ce qui se passe.</p>
+    </div>
+  </div>
+  <div class="section-wa">
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Démarrer ce process pour mon business
+    </a>
+  </div>
+</section>
+
+<!-- OBJECTIONS -->
+<section class="objections fade-up">
+  <div class="center">
+    <div class="section-label">Vos questions</div>
+    <div class="section-title">Réponses honnêtes aux vraies questions</div>
+  </div>
+  <div class="obj-grid">
+    <div class="obj-card">
+      <div class="obj-q">Et si ça ne marche pas pour moi ?</div>
+      <p class="obj-a">Je commence toujours par un audit honnête. Si votre marché ou votre offre ne se prête pas à la publicité payante à ce stade, je vous le dis clairement — et je vous oriente vers des solutions adaptées. Je ne prends pas de clients pour lesquels je ne peux pas produire de résultats.</p>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q">Est-ce adapté à mon business ?</div>
+      <p class="obj-a">Meta Ads et Google Ads fonctionnent pour une très large variété de secteurs : services locaux, e-commerce, formation, santé, immobilier, B2B. Lors de notre échange initial, je vous dis précisément si votre activité est compatible et quelle plateforme est la plus pertinente pour vous.</p>
+    </div>
+    <div class="obj-card">
+      <div class="obj-q">Quel budget faut-il prévoir ?</div>
+      <p class="obj-a">Il n'y a pas de minimum universel — tout dépend de votre secteur, vos objectifs et votre marché. En règle générale, je recommande un budget publicitaire de départ compris entre 300€ et 1000€/mois. Mes honoraires de gestion sont discutés lors de notre premier échange sur WhatsApp.</p>
+    </div>
+  </div>
+  <div class="section-wa">
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Poser ma question sur WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- À PROPOS -->
+<section class="about fade-up">
+  <div class="about-inner">
+    <div class="about-photo">SR</div>
+    <div>
+      <div class="section-label">À propos</div>
+      <div class="about-name">Sitraka Ramamonjisoa</div>
+      <div class="about-title">Fondateur · Cassivi Digital MG</div>
+      <p class="about-bio">Media buyer spécialisé en acquisition client sur Meta Ads et Google Ads. Mon seul objectif : que chaque euro que vous investissez en publicité vous rapporte davantage. Pas de jargon inutile, pas de rapports creux — juste des résultats mesurables et une communication transparente.</p>
+      <p class="about-bio">Je travaille avec des entreprises qui veulent scaler sérieusement, et qui comprennent que la publicité en ligne est un investissement stratégique, pas une dépense.</p>
+      <div class="about-tags">
+        <span class="about-tag">Meta Ads</span>
+        <span class="about-tag">Google Ads</span>
+        <span class="about-tag">Acquisition client</span>
+        <span class="about-tag">Stratégie ROI</span>
+        <span class="about-tag">Lead Generation</span>
+        <span class="about-tag">E-commerce</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-bg"></div>
+  <div class="final-cta-inner fade-up">
+    <div class="section-label" style="color:var(--blue-light);">Dernière chance</div>
+    <h2>Si vous êtes sérieux sur vos résultats,<br>cliquez ci-dessous.</h2>
+    <p>Seulement 3 places disponibles ce mois-ci. Pas de relance, pas de pression — juste un échange honnête pour voir si on est faits pour travailler ensemble.</p>
+    <a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="btn-wa" style="font-size:1.1rem;padding:18px 36px;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      Discuter sur WhatsApp maintenant →
+    </a>
+    <p class="final-note">Réponse garantie sous 24h · Audit initial gratuit · Zéro engagement</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Cassivi<span>Digital</span> MG</div>
+  <div class="footer-links">
+    <a href="mailto:cassividigitalmg@gmail.com">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      cassividigitalmg@gmail.com
+    </a>
+    <a href="https://wa.me/261375975512" target="_blank">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+      +261 37 597 5512
+    </a>
+  </div>
+  <div class="footer-copy">© 2025 Cassivi Digital MG · Sitraka Ramamonjisoa · Tous droits réservés</div>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/261375975512?text=Bonjour%20je%20viens%20de%20voir%20votre%20portfolio" target="_blank" class="wa-float" title="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.116 1.523 5.842L.042 23.979l6.283-1.647A11.958 11.958 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.854 0-3.607-.483-5.13-1.33l-.367-.216-3.73.978.996-3.636-.238-.374A9.954 9.954 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Stagger child animations
+  document.querySelectorAll('.cases-grid, .testi-grid, .solution-grid, .obj-grid, .problem-cards, .process-steps').forEach(grid => {
+    Array.from(grid.children).forEach((child, i) => {
+      child.style.transitionDelay = `${i * 0.1}s`;
+      child.classList.add('fade-up');
+      observer.observe(child);
+    });
+  });
+</script>
+
+</body>
+</html>
